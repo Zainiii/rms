@@ -17,6 +17,7 @@ return new class extends Migration
             $table->integer('template_id');
 
             $table->integer('order_no');
+            $table->string('section_style')->nullable();
             $table->string('header_style')->nullable();
             $table->string('body_style')->nullable();
             $table->string('sub_header_style')->nullable();

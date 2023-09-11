@@ -15,11 +15,10 @@ class TemplateController extends Controller
 
         return view('template_holder', ['template'=>$template, 'sections'=>$temp_sec]);
         
-        //$pdf = PDF::loadView('template', [$template, $temp_sec]);
-        //$name = 'template_'.$id.'.pdf';
-        //return $pdf->stream($name);
-
-        //var_dump($template);
+/*        $pdf = PDF::loadView('template', ['template'=>$template, 'sections'=>$temp_sec]);
+        $name = 'template_'.$id.'.pdf';
+        return $pdf->stream($name);
+*/
     }
 }
 
