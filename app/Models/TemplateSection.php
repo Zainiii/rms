@@ -9,15 +9,36 @@ class TemplateSection extends Model
 {
     use HasFactory;
 
-    public function template(): HasOne
+
+    public function getHeaderStyleAttribute($value)
     {
-        return $this->hasOne(Template::class, 'template_id', 'id');
+        return trim($value, '"'); 
+    }
+
+    public function getBodyStyleAttribute($value)
+    {
+        return trim($value, '"'); 
+    }
+
+    public function getSubHeaderStyleAttribute($value)
+    {
+        return trim($value, '"'); 
+    }
+    
+    public function getSubBodyStyleAttribute($value)
+    {
+        return trim($value, '"'); 
+    }
+
+    public function template()
+    {
+        return $this->belongsTos(Template::class, 'template_id', 'id');
     }
 
 
-    public function section(): HasOne
+    public function section()
     {
-        return $this->hasOne(Section::class, 'section_id', 'id');
+        return $this->belongsTo(Section::class, 'section_id', 'id');
     }
 
 

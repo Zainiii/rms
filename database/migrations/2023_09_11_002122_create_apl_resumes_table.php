@@ -16,7 +16,8 @@ return new class extends Migration
             $table->integer('section_id');
             $table->integer('applicant_id');
 
-            $table->string('data');
+            $table->string('data')->nullable;
+            $table->boolean('is_group')->default(false);
 
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();

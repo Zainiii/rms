@@ -17,8 +17,10 @@ return new class extends Migration
             $table->integer('template_id');
 
             $table->integer('order_no');
-            $table->string('styling')->nullable();
-            $table->string('group_styling')->nullable();
+            $table->string('header_style')->nullable();
+            $table->string('body_style')->nullable();
+            $table->string('sub_header_style')->nullable();
+            $table->string('sub_body_style')->nullable();
 
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
