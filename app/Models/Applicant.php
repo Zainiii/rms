@@ -8,4 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Applicant extends Model
 {
     use HasFactory;
+
+    public function resume()
+    {
+        return $this->hasMany(AplResume::class, 'applicant_id', 'id');
+    }
+
+
 }

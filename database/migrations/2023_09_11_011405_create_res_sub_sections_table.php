@@ -15,8 +15,8 @@ return new class extends Migration
             $table->integer('id', true)->unsigned(false)->length(11);
             $table->integer('resume_id');
 
-            $table->string('title');
-            $table->string('data');
+            $table->text('title');
+            $table->text('data');
 
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();

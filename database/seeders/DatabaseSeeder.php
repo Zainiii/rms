@@ -24,6 +24,9 @@ class DatabaseSeeder extends Seeder
             SectionSeeder::class,
             TemplateSeeder::class,
             TempSectionSeeder::class,
+            ApplicantSeeder::class,
+            ApplResumeSeeder::class,
+            ResSubSectionSeeder::class,
         ]);
     }
 }

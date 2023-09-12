@@ -16,6 +16,7 @@ return new class extends Migration
             $table->integer('section_id');
             $table->integer('template_id');
 
+            $table->boolean('show_title')->default(true);
             $table->integer('order_no');
             $table->string('section_style')->nullable();
             $table->string('header_style')->nullable();

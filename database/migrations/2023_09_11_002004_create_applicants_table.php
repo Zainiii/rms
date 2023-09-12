@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('applicants', function (Blueprint $table) {
             $table->integer('id', true)->unsigned(false)->length(11);
 
-            $table->integer('name');
+            $table->string('name');
 
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();

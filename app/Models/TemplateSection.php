@@ -42,4 +42,10 @@ class TemplateSection extends Model
     }
 
 
+    public function resume()
+    {
+        return $this->belongsTo(AplResume::class, 'section_id', 'section_id');
+    }
+
+
 }

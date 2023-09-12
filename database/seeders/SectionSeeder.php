@@ -14,14 +14,29 @@ class SectionSeeder extends Seeder
     public function run(): void
     {
         DB::table('sections')->insert([
+            ['title' => 'Name',
+            'synonyms' => 'name'],
+
             ['title' => 'Title',
             'synonyms' => 'title'],
+
+            ['title' => 'Contact',
+            'synonyms' => 'contact'],
+
+            ['title' => 'Address',
+            'synonyms' => 'address'],
 
             ['title' => 'Profile',
             'synonyms' => 'profile'],
 
             ['title' => 'Education',
             'synonyms' => 'education|academic'],
+
+            ['title' => 'Experience',
+            'synonyms' => 'experience'],
+
+            ['title' => 'Skills',
+            'synonyms' => 'skill'],
 
         ]);
     }

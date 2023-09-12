@@ -1,6 +1,6 @@
 <html>
   <head>
-    <title>Title of the document</title>
+    <title>{{$template->title}}</title>
     <style type="text/css">
         body {
           background-color: #807f7f;
