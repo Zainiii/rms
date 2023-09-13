@@ -34,4 +34,11 @@ $pdf = PDF::loadView('pages.newblade', []);
 
         //return Pdf::loadFile(public_path().'/myfile.html')->save('/path-to/my_stored_file.pdf')->stream('download.pdf');
     }
+
+
+    public function viewTest(){
+        return view('index');
+    }
+
+
 }

@@ -22,4 +22,8 @@ Route::get('/', function () {
 
 
 Route::get('test', [TestController::class, 'showPDF']);
-Route::get('template/{id?}', [TemplateController::class, 'view']);
+Route::get('testView', [TestController::class, 'viewTest']);
+
+
+Route::get('templates', [TemplateController::class, 'templates'])->name('templates');;
+Route::get('template/{id?}', [TemplateController::class, 'view'])->name('template.view');;
