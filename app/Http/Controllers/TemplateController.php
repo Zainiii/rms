@@ -18,17 +18,13 @@ class TemplateController extends Controller
     
         }])->where('template_id', $id)->orderBy('order_no')->get();
 
-    //    dd($temp_sec);
 
-        //remove this unused object
-        $resume = Applicant::with('resume', 'resume.subSections')->first();
-
-        return view('template_holder', ['template'=>$template, 'sections'=>$temp_sec, 'resume' => $resume]);
+//        return view('template_holder', ['template'=>$template, 'sections'=>$temp_sec]);
         
-/*        $pdf = PDF::loadView('template', ['template'=>$template, 'sections'=>$temp_sec]);
+        $pdf = PDF::loadView('template', ['template'=>$template, 'sections'=>$temp_sec]);
         $name = 'template_'.$id.'.pdf';
         return $pdf->stream($name);
-*/
+
     }
 }
 
