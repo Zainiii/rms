@@ -19,13 +19,21 @@ class TemplateController extends Controller
         }])->where('template_id', $id)->orderBy('order_no')->get();
 
 
-//        return view('template_holder', ['template'=>$template, 'sections'=>$temp_sec]);
+        return view('template', ['template'=>$template, 'sections'=>$temp_sec]);
         
-        $pdf = PDF::loadView('template', ['template'=>$template, 'sections'=>$temp_sec]);
-        $name = 'template_'.$id.'.pdf';
-        return $pdf->stream($name);
+//        $pdf = PDF::loadView('template', ['template'=>$template, 'sections'=>$temp_sec]);
+//        $name = 'template_'.$id.'.pdf';
+//        return $pdf->stream($name);
 
     }
+
+    public function templates(){
+        $templates = Template::all();
+
+        return view('templates', ['templates'=>$templates]);
+
+    }
+
 }
 
 
