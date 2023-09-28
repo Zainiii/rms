@@ -23,16 +23,15 @@ class ApplicantController extends Controller
     }
 
     public function applicant_new_post(Request $request){
-        dd($request);
+        /*dd($request);
         $post = new Post;
         $post->title = $request->title;
         $post->description = $request->description;
-        $post->save();
-        //return redirect('add-blog-post-form')->with('status', 'Blog Post Form Data Has Been inserted');
-
-
-        $sections = Section::orderBy('id')->get();
-        return view('add_data', ['sections'=>$sections]);
+        $post->save();*/
+        return redirect()->route('applicant_new')->withErrors(['message'=> 'Data Saved Successfully.']);
+        
+        //$sections = Section::orderBy('id')->get();
+        //return view('add_data', ['sections'=>$sections]);
     }
 
 

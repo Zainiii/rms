@@ -29,6 +29,13 @@
 
   <div class="container col-md-6 bg-white mt-5 p-5">
     <h3 class="text-center">Add Resume Data</h3>
+    
+    @if($errors->any())
+    <div class="alert alert-success" role="alert">
+      {{ $errors->first() }}
+    </div>
+    @endif
+
     <form  class="row g-3" action="{!! route('applicant_new_post') !!}" method="POST">             
       @csrf
       @foreach($sections as $section)
