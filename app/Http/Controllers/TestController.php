@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Barryvdh\DomPDF\Facade\Pdf;
+use App\Models\Section;
 
 class TestController extends Controller
 {
@@ -37,7 +38,8 @@ $pdf = PDF::loadView('pages.newblade', []);
 
 
     public function viewTest(){
-        return view('index');
+        $sections = Section::orderBy('id')->get();
+        return view('add_data', ['sections'=>$sections]);
     }
 
 

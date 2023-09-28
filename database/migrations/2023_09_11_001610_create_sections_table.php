@@ -14,6 +14,7 @@ return new class extends Migration
         Schema::create('sections', function (Blueprint $table) {
             $table->integer('id', true)->unsigned(false)->length(11);
             $table->string('title');
+            $table->string('input_type');
             $table->string('synonyms')->nullable();
 
             $table->timestamp('created_at')->useCurrent();
