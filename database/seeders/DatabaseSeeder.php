@@ -27,6 +27,7 @@ class DatabaseSeeder extends Seeder
             ApplicantSeeder::class,
             ApplResumeSeeder::class,
             ResSubSectionSeeder::class,
+            TagSeeder::class,
         ]);
     }
 }

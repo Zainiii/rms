@@ -56,7 +56,7 @@
               @if($resume != null)
               @if(strlen($resume->data) >= 40) {{ substr($resume->data, 0, 40). " ... " }} @else {{ $resume->data }} @endif
               
-              @if($section->input_type == 'para') 
+              @if($section->input_type == 'para' && strlen($resume->data) >= 40) 
               <span class="badge badge-primary" style="cursor: pointer;" data-toggle="modal" data-target="#modal{{ $resume->id }}">Show More!</span>
               <div class="modal fade" id="modal{{ $resume->id }}" tabindex="-1" role="dialog" aria-labelledby="modal{{ $resume->id }}Label" aria-hidden="true">
                 <div class="modal-dialog modal-lg" role="document">
