@@ -14,7 +14,7 @@ class ApplicantController extends Controller
 {
     
     public function applicants(){
-        $applicants = Applicant::with('resume', 'resume.subSections')->get();
+        $applicants = Applicant::where('id', '!=', 1)->with('resume', 'resume.subSections', 'tags')->get();
         $sections = Section::orderBy('id')->get();
 
         return view('applicant_data', ['applicants'=>$applicants, 'sections' => $sections]);
@@ -27,6 +27,7 @@ class ApplicantController extends Controller
     }
 
     public function applicant_new_post(Request $request){
+        $data = $this->validate_data($request);
         $applicant = new Applicant;
         $applicant->name = $request->input_1;
         $applicant->save();
@@ -37,43 +38,69 @@ class ApplicantController extends Controller
                 $appl_tag->applicant_id = $applicant->id;
                 $appl_tag->tag_id = $tag;
                 $appl_tag->save();
-            }            
+            }
         }
 
-        $sections = Section::orderBy('id')->get();
-        foreach($sections as $section){
-            $resume = new AplResume;            
-            $resume->section_id = $section->id;
+        foreach($data as $key => $d){
+            $resume = new AplResume;
+            $resume->section_id = $d['section_id'];
             $resume->applicant_id = $applicant->id;
-            if($section->input_type == 'multi')
+
+            if($d['input_type'] == 'multi')
                 $resume->is_group = true;
-            else{
-                $v = 'input_'.$section->id;
-                $resume->data = $request->{$v};
-            }
+            else
+                $resume->data = $d['input'];
+            
             $resume->save();
 
-            if($section->input_type == 'multi'){
-                $v1 = 'input_'.$section->id.'_title';
-                $v2 = 'input_'.$section->id.'_data';
-
-                $sub_titles = $request->{$v1};
-                $sub_datas = $request->{$v2};
-
+            if($d['input_type'] == 'multi'){
+                $sub_titles = $d['input']['title'];
+                $sub_datas = $d['input']['data'];
+    
                 foreach($sub_titles as $i=>$sub_title){
-                    $resume_sub = new ResSubSection;
-                    $resume_sub->resume_id = $resume->id;
-                    $resume_sub->title = $sub_title;
-                    $resume_sub->data = $sub_datas[$i];
-                    $resume_sub->save();
+                    if($sub_title != null && $sub_datas[$i] != null) {
+                        $resume_sub = new ResSubSection;
+                        $resume_sub->resume_id = $resume->id;
+                        $resume_sub->title = $sub_title;
+                        $resume_sub->data = $sub_datas[$i];
+                        $resume_sub->save();
+                    }
                 }
             }
-
         }
 
-        return redirect()->route('applicant_new')->withErrors(['message'=> 'Data Saved Successfully.']);
+        return redirect()->route('applicants')->with('success', 'Data Saved Successfully.');
     }
 
+
+    public function validate_data($request){
+        $rules = array();
+        $messages = array();
+        $data = array();
+
+        $sections = Section::orderBy('id')->get();
+
+        foreach($sections as $section){
+            if(isset($request->{'section'.$section->id.'_show'})){
+                $v = 'input_'.$section->id;
+                if($section->input_type == 'multi'){
+                    $v1 = 'input_'.$section->id.'_title';
+                    $v2 = 'input_'.$section->id.'_data';
+
+                    $rules = array_merge($rules, [$v1.'.*' => 'required', $v2.".*" => 'required']);
+                    $messages = array_merge($messages, [$v1.'.*.required' => '<b>Title</b> in <b>'.$section->title.'</b> is required', $v2.'.*.required' => '<b>Details</b> in <b>'.$section->title.'</b> is required']);
+                    $data = array_merge($data, [$v => ['section_id' => $section->id, 'input_type' => $section->input_type, 'input' => ['title' => $request->{$v1}, 'data' => $request->{$v2}]]] );
+
+                }else {
+                    $rules = array_merge($rules, [$v => 'required']);
+                    $messages = array_merge($messages, [$v.'.required' => '<b>'.$section->title.'</b> is required']);
+                    $data = array_merge($data, [$v => ['section_id' => $section->id, 'input_type' => $section->input_type, 'input' => $request->{$v}]]);
+                }
+            }
+        }
+        $request->validate($rules, $messages);
+        return $data;
+    }
 
 
 }

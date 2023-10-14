@@ -22,12 +22,14 @@ class DatabaseSeeder extends Seeder
 
         $this->call([
             SectionSeeder::class,
-            TemplateSeeder::class,
-            TempSectionSeeder::class,
+            TagSeeder::class,
+            UserSeeder::class,
+
             ApplicantSeeder::class,
             ApplResumeSeeder::class,
             ResSubSectionSeeder::class,
-            TagSeeder::class,
+            // TemplateSeeder::class,
+            // TempSectionSeeder::class,
         ]);
     }
 }
