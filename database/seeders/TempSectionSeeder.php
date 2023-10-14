@@ -81,6 +81,16 @@ class TempSectionSeeder extends Seeder
                 'sub_body_style' => '"font-family: math;padding-left: 30px;padding-right: 30px;"'
             ],
 
+            [
+                'section_id' => 7,
+                'template_id' => 1,
+                'order_no' => 7,
+                'show_title' => true,
+                'header_style' => '"font-size: 32px;font-weight: bold;font-family: math;padding-left: 30px;"',
+                'body_style' => '"color: #c49a69;font-family: math;padding-left: 30px;padding-right: 30px;"',
+                'sub_header_style' => '"font-size: 20px;font-weight: bold;font-family: math;padding-left: 30px;padding-right: 30px;"',
+                'sub_body_style' => '"font-family: math;padding-left: 30px;padding-right: 30px;"'
+            ],
 
         ]);
     }
