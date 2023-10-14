@@ -16,10 +16,13 @@
                     <a class="nav-link nav-link-2 @if(Route::current()->getName() == 'applicants') active @endif" href="{{ route('applicants') }}">Applicants</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-link-3" href="#">Link</a>
+                    <a class="nav-link nav-link-3 @if(Route::current()->getName() == 'configuration') active @endif" href="{{ route('configuration') }}">Config</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link nav-link-4" href="#">Link</a>
+                    <a class="nav-link nav-link-3 @if(Route::current()->getName() == 'profile') active @endif" href="{{ route('profile') }}">Profile</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link nav-link-4" href="{{ route('logout') }}">Logout</a>
                 </li>
             </ul>
         </div>

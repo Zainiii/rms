@@ -18,6 +18,7 @@
 
   <div class="frame">
     @foreach($sections as $section)
+    @if($section->resume != null)
 
     <div style="{!! $section->section_style !!}">
         @if($section->show_title)
@@ -40,6 +41,7 @@
     </div>
 
 
+    @endif
     @endforeach 
   </div>
 
