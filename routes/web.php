@@ -32,8 +32,6 @@ Route::get('login', [UserController::class, 'login'])->name('login');
 Route::post('login', [UserController::class, 'authenticate'])->name('login_post');
 Route::get('logout', [UserController::class, 'logout'])->name('logout');
 
-Route::get('templates', [TemplateController::class, 'templates'])->name('templates');;
-Route::get('template/{id?}', [TemplateController::class, 'view'])->name('template.view');;
 Route::middleware(['auth'])->group(function () {
     Route::get('profile', [UserController::class, 'profile'])->name('profile');
     Route::post('profile/{type}', [UserController::class, 'profile_post'])->name('profile_update');
