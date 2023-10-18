@@ -232,7 +232,6 @@
               <label for="section{{ $section->id }}_header_show">Hide Header?</label>
               <input type="checkbox" class="toggle" name="section{{ $section->id }}_header_hide" id="section{{ $section->id }}_header_hide" onchange="headerShow(this, '#section{{ $section->id }}_header')"> 
             </div>
-            <hr />
             <div class="flex gap-5 justify-content-between align-items-center text-center">
               <button class="btn btn-success btn-sm" type="button" onclick="move('#section{{ $section->id }}', 'up')">
                 <div class="flex gap-2">
@@ -248,6 +247,9 @@
               </button>
             </div>
             <hr />
+          </div>
+          <div class="style-block card">
+            <h5 class="text-center">Header</h5>
             <div class="font-size-group">
               <label for="section{{ $section->id }}_header_font" class="text-muted">Font:</label>
               <select class="form-control form-control-sm" id="section{{ $section->id }}_header_font" name="section{{ $section->id }}_header_font" onchange="styleFont(this, '#section{{ $section->id }}_header')">
@@ -299,7 +301,8 @@
 
 
           @if($section->input_type == "multi")
-          <div class="style-block">
+          <div class="style-block card">
+            <h5 class="text-center">Sub Header</h5>
             <div class="font-size-group">
               <label for="section{{ $section->id }}_subheader_font" class="text-muted">Font:</label>
               <select class="form-control form-control-sm" id="section{{ $section->id }}_subheader_font" name="section{{ $section->id }}_subheader_font" onchange="styleFont(this, '#section{{ $section->id }}_subheader')">
@@ -345,7 +348,8 @@
             </div>
           </div>
 
-          <div class="style-block">
+          <div class="style-block card">
+            <h5 class="text-center">Body</h5>
             <div class="font-size-group">
               <label for="section{{ $section->id }}_subbody_font" class="text-muted">Font:</label>
               <select class="form-control form-control-sm" id="section{{ $section->id }}_subbody_font" name="section{{ $section->id }}_subbody_font" onchange="styleFont(this, '#section{{ $section->id }}_subbody')">
@@ -392,7 +396,8 @@
           </div>
           
           @else
-          <div class="style-block">
+          <div class="style-block card">
+            <h5 class="text-center">Body</h5>
             <div class="font-size-group">
               <label for="section{{ $section->id }}_body_font" class="text-muted">Font:</label>
               <select class="form-control form-control-sm" id="section{{ $section->id }}_body_font" name="section{{ $section->id }}_body_font" onchange="styleFont(this, '#section{{ $section->id }}_body')">

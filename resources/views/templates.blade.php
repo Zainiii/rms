@@ -9,6 +9,21 @@
         background-color: white !important;
         background-image: none !important;
       }
+
+    .bg-dark1{
+        width: 100%;
+        height: 573px;
+        background-color: #0000009e;
+        position: absolute;
+        margin-top: -572px;
+    }
+    .banner-header{
+        color:white;
+        font-family: sans-serif;
+        font-size: 64px;
+        margin-top: 150px;
+    }
+
     </style>
 @endsection
 
@@ -17,7 +32,14 @@
 @include('snippet.topnav')
 
 @if($applicant_id == null)
-<div class="tm-hero d-flex justify-content-center align-items-center" data-parallax="scroll" data-image-src="{{ asset('img/bg (3).jpg') }}"></div>
+<video playsinline autoplay muted loop poster="polina.jpg" id="bgvid">
+  <source src="vid.mp4" type="video/mp4">
+</video>
+<div class="bg-dark1">
+    <h1 class="banner-header text-center">Welcome To The</h1>
+    <h1 class="banner-header text-center" style="margin-top: 50px; font-size:78px;"><b style="color: #8ad6ff;">Easiness</b> Of <b style="color: #ecb1ff;">Recruitment</b></h1>
+</div>
+
 @endif
 
 <div class="container-fluid tm-container-content tm-mt-60">
