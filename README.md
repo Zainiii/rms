@@ -1,4 +1,4 @@
-[logo]: public/imgimages/logo.png
+[logo]: public/img/logo.png
 
 
 
