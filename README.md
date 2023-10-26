@@ -1,9 +1,6 @@
 [logo]: public/img/logo.png
 
 
-
-<p align="center">![ResuMuse][logo]</p>
-
 ![Product Name Screen Shot][logo]
 
 # ResuMuse : Installation Manual
