@@ -4,7 +4,7 @@
 
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="public/imgimages/logo.png" width="400" alt="Laravel Logo"></a></p>
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
+![Product Name Screen Shot][logo]
 
 # ResuMuse : Installation Manual
 
