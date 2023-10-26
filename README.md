@@ -7,60 +7,56 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## About ResuMuse
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Welcome to the installation guide for setting up your Laravel project. Laravel is a powerful PHP framework known for its elegant syntax and robust features. This guide will walk you through the steps to install and configure a Laravel project on your local development environment.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+## Prerequisites:
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Before you begin, ensure that you have the following prerequisites installed on your system:
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+- <b>PHP:</b> Project requires PHP 8.2.4 or higher. You can download PHP from [php.net](https://www.php.net/).
+- <b>Composer:</b> Composer is a dependency manager for PHP. You can download and install Composer from [getcomposer.org](https://getcomposer.org/).
+- <b>Database:</b> Project is using MySQL. Make sure you have a MYSQL database server installed and running.
+- <b>Web Server:</b> You can use Apache or Nginx as the web server. Both are compatible with Project. Make sure your web server is installed and configured properly.
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
 
-### Premium Partners
+## Step 1: Clone the ResuMuse Project
+Open your terminal or command prompt and navigate to the directory where you want to install the project. Run the following command to clone the project from a repository:
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+<b>git clone https://github.com/syedtaseer/rms.git</b>
 
-## Contributing
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Step 2: Install Dependencies
+Navigate to the project directory using the terminal:
+<b>cd rms</b>
 
-## Code of Conduct
+Next, install the project dependencies using Composer:
+<b>composer install</b>
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+This command will download and install all the required packages and libraries for the project.
 
-## Security Vulnerabilities
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+## Step 3: Configure Environment Variables
+Duplicate the .env.example file and rename it to .env. Update the database configuration and other environment-specific variables in the .env file.
+<b>cp .env.example .env</b>
 
-## License
+Open the .env file in a text editor and configure the database connection, mail, and other settings according to your requirements.
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+## Step 4: Generate Application Key
+Run the following command to generate a unique application key:
+<b>php artisan key:generate</b>
+
+
+## Step 5: Run Migrations and Seeders
+Run the database migrations to create the required tables in the database:
+<b>php artisan migrate:fresh --seed</b>
+
+
+
+Congratulations! You have successfully installed and configured your ResuMuse project. You can now start using it.
