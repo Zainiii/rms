@@ -18,14 +18,6 @@ use App\Http\Controllers\SettingController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-
-
-Route::get('test', [TestController::class, 'showPDF']);
-Route::get('testView', [TestController::class, 'viewTest']);
 
 Route::get('/', [UserController::class, 'login'])->name('login');
 Route::get('login', [UserController::class, 'login'])->name('login');
